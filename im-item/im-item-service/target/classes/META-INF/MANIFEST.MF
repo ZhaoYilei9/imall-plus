@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: im-item-service
+Implementation-Version: 1.0.0
+Built-By: zyl
+Implementation-Vendor-Id: com.imall
+Build-Jdk: 1.8.0_191
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/imall-master/im-item/im-item-service
+Created-By: Maven Integration for Eclipse
+
