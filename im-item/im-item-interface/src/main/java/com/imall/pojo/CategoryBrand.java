@@ -4,7 +4,12 @@ import javax.persistence.*;
 
 @Table(name = "tb_category_brand")
 public class CategoryBrand {
-    /**
+    @Override
+	public String toString() {
+		return "CategoryBrand [categoryId=" + categoryId + ", brandId=" + brandId + "]";
+	}
+
+	/**
      * 商品类目id
      */
     @Id

@@ -2,16 +2,27 @@ package com.imall.controller;
 
 import java.util.List;
 
+import javax.validation.constraints.Positive;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.imall.common.pojo.PageResult;
+import com.imall.common.vo.BrandVO;
 import com.imall.pojo.Brand;
+import com.imall.pojo.Category;
 import com.imall.response.ImallResult;
 import com.imall.service.BrandService;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * 
@@ -19,12 +30,22 @@ import com.imall.service.BrandService;
  */
 @RestController
 @RequestMapping("brand")
+@Slf4j
 public class BrandController {
 	
 	@Autowired
 	private BrandService brandService;
 
-	@RequestMapping("page")
+	/**
+	 * 
+	 * @param key 过滤查询
+	 * @param page 页数
+	 * @param rows 每页现实的记录数
+	 * @param sortBy 要排序的字段
+	 * @param desc 增序还是降序
+	 * @return
+	 */
+	@GetMapping("page")
 	public  PageResult<Brand> brandList (@RequestParam(name = "key",required = false) String key, 
 										  @RequestParam(name = "page", defaultValue = "1") Integer page,
 										  @RequestParam(name = "rows", defaultValue = "5") Integer rows,
@@ -35,4 +56,33 @@ public class BrandController {
 		return brands;
 	}
 
+	@PostMapping
+	public ImallResult saveBrand(BrandVO brand) {
+		log.info("***brand:{}***", brand);
+		Integer saveBrandCounts = brandService.saveBrand(brand);
+		if (saveBrandCounts > 0) {
+			return ImallResult.success();
+		}
+		return ImallResult.errorMsg("保存失败");
+	}
+	/**
+	 * bid/1912
+	 */
+	@GetMapping("bid/{id}")
+	public ImallResult queryBrandById(@PathVariable("id") Long id) {
+		log.info("***bid:{}",id);
+		List<Category> categories = brandService.queryCategoriesByBid(id);
+		if (CollectionUtils.isEmpty(categories)) {
+			return ImallResult.errorMsg("查询失败");
+		}
+		return ImallResult.success(categories);
+	}
+	@PutMapping
+	public ImallResult updateBrand(BrandVO brand) {
+		Integer updateBrandCount = brandService.updateBrand(brand);
+		if (updateBrandCount > 0) {
+			return ImallResult.success();
+		}
+		return ImallResult.errorMsg("保存失败");
+	}
 }

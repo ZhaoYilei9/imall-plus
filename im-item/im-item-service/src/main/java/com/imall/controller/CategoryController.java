@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.CollectionUtils;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,7 +27,7 @@ public class CategoryController {
 	/*
 	 * url:http://api.imall.com/api/item/category/list?pid=0
 	 */
-	@RequestMapping("list")
+	@GetMapping("list")
 	public ResponseEntity categoryList(@RequestParam("pid") Long pid ) {
 		log.info("***pid***: {}", pid);
 		List<Category> categories = categoryService.queryCategoriesByPid(pid);
@@ -35,4 +36,5 @@ public class CategoryController {
 		}
 		return ResponseEntity.ok(categories);
 	}
+	
 }
