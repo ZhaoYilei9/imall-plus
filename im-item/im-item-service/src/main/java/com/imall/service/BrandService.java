@@ -17,4 +17,6 @@ public interface BrandService {
 
 	public Integer updateBrand(BrandVO brand);
 
+	public Integer deleteBrandById(Long bid);
+
 }

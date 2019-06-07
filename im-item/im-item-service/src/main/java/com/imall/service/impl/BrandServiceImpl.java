@@ -36,9 +36,10 @@ public class BrandServiceImpl implements BrandService {
 
 	@Autowired
 	private CategoryBrandMapper categoryBrandMapper;
-	
-	@Autowired 
+
+	@Autowired
 	private CategoryService categoryService;
+
 	@Override
 	public PageResult<Brand> brandList(String key, Integer page, Integer rows, String sortBy, Boolean desc) {
 		// 1.开启分页助手
@@ -91,7 +92,7 @@ public class BrandServiceImpl implements BrandService {
 		Criteria criteria = example.createCriteria();
 		criteria.andEqualTo("brandId", id);
 		List<CategoryBrand> categoryBrands = categoryBrandMapper.selectByExample(example);
-		List<Long> cids = categoryBrands.stream().map(CategoryBrand :: getCategoryId).collect(Collectors.toList());
+		List<Long> cids = categoryBrands.stream().map(CategoryBrand::getCategoryId).collect(Collectors.toList());
 		log.info("***cids:{}", cids);
 		List<Category> categories = new ArrayList<Category>();
 		for (Long cid : cids) {
@@ -102,9 +103,51 @@ public class BrandServiceImpl implements BrandService {
 	}
 
 	@Override
+	@Transactional(propagation = Propagation.REQUIRED)
 	public Integer updateBrand(BrandVO brand) {
-		
-		return null;
+		Brand brandDb = new Brand();
+		BeanUtils.copyProperties(brand, brandDb);
+		// 1.保存品牌信息，即新增商品品牌表
+		int updateBrandCounts = brandMapper.updateByPrimaryKey(brandDb);
+		log.info("***修改品牌id:{}", brandDb.getId());
+		// 2.保存品牌分类信息，即新增品牌商品分类表
+		int updateCBCounts = 0;
+		List<Long> cids = brand.getCids();
+		// 3.先删除该品牌对应的-品牌商品分类表的旧数据
+		Example example = new Example(CategoryBrand.class);
+		Criteria criteria = example.createCriteria();
+		criteria.andEqualTo("brandId", brand.getId());
+		int deleteCounts = categoryBrandMapper.deleteByExample(example);
+		for (Long cid : cids) {
+
+			// 4.再新增该品牌对应的-品牌商品分类表
+			CategoryBrand cb = new CategoryBrand();
+			cb.setBrandId(brandDb.getId());
+			cb.setCategoryId(cid);
+			updateCBCounts = categoryBrandMapper.insert(cb);
+		}
+		if (updateBrandCounts == 0 || updateCBCounts == 0) {
+			return 0;
+		}
+		return 1;
 	}
+
+	@Transactional(propagation = Propagation.REQUIRED)
+	@Override
+	public Integer deleteBrandById(Long bid) {
+		//1.删除品牌的相关信息
+		
+		int deleteCount = brandMapper.deleteByPrimaryKey(bid);
+		//2.删除品牌分类关联表的数据
+		Example example = new Example(CategoryBrand.class);
+		Criteria criteria = example.createCriteria();
+		criteria.andEqualTo("brandId", bid);
+		int deleteCounts = categoryBrandMapper.deleteByExample(example);
+		if (deleteCount == 0 || deleteCounts == 0) {
+			return 0;
+		}
+		return 1;
+	}
+
 	
 }

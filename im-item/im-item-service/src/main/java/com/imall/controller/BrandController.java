@@ -6,6 +6,7 @@ import javax.validation.constraints.Positive;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -80,9 +81,20 @@ public class BrandController {
 	@PutMapping
 	public ImallResult updateBrand(BrandVO brand) {
 		Integer updateBrandCount = brandService.updateBrand(brand);
+		log.info("***修改brand的cids:{}***", brand.getCids());
 		if (updateBrandCount > 0) {
 			return ImallResult.success();
 		}
 		return ImallResult.errorMsg("保存失败");
+	}
+	
+	@DeleteMapping("bid/{bid}")
+	public ImallResult deleteBrandById(@PathVariable("bid") Long bid) {
+		log.info("***要删除的品牌的id:{}", bid);
+		Integer deleteCounts = brandService.deleteBrandById(bid);
+		if (deleteCounts > 0) {
+			return ImallResult.success();
+		}
+		return ImallResult.errorMsg("删除失败");
 	}
 }
