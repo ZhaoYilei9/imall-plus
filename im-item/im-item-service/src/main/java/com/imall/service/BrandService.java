@@ -19,4 +19,6 @@ public interface BrandService {
 
 	public Integer deleteBrandById(Long bid);
 
+	public List<Brand> getBrandsByCid(Long cid);
+
 }

@@ -86,6 +86,7 @@ public class BrandServiceImpl implements BrandService {
 		return 1;
 	}
 
+
 	@Override
 	public List<Category> queryCategoriesByBid(Long id) {
 		Example example = new Example(CategoryBrand.class);
@@ -147,6 +148,18 @@ public class BrandServiceImpl implements BrandService {
 			return 0;
 		}
 		return 1;
+	}
+
+	@Override
+	public List<Brand> getBrandsByCid(Long cid) {
+		Example example = new Example(CategoryBrand.class);
+		Criteria criteria = example.createCriteria();
+		criteria.andEqualTo("categoryId", cid);
+		List<CategoryBrand> cbs = categoryBrandMapper.selectByExample(example);
+		List<Long> bids = cbs.stream().map(CategoryBrand :: getBrandId).collect(Collectors.toList());
+		log.info("***商品新增-查询品牌ids:{}", bids.size());
+		List<Brand> brands = brandMapper.selectByIdList(bids);
+		return brands;
 	}
 
 	

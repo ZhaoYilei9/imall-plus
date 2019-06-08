@@ -26,6 +26,7 @@ public class SpecParam {
     /**
      * 是否是数字类型参数，true或false
      */
+    @Column(name = "`numeric`")
     private Boolean numeric;
 
     /**

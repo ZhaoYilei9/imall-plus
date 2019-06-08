@@ -16,4 +16,9 @@ public class PageResult<T> {
 	private long pages;
 	// 总记录数
 	private long total;
+	@Override
+	public String toString() {
+		return "PageResult [page=" + page + ", items=" + items + ", pages=" + pages + ", total=" + total + "]";
+	}
+	
 }

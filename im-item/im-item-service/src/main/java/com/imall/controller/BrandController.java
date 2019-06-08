@@ -33,27 +33,26 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("brand")
 @Slf4j
 public class BrandController {
-	
+
 	@Autowired
 	private BrandService brandService;
 
 	/**
 	 * 
-	 * @param key 过滤查询
-	 * @param page 页数
-	 * @param rows 每页现实的记录数
+	 * @param key    过滤查询
+	 * @param page   页数
+	 * @param rows   每页现实的记录数
 	 * @param sortBy 要排序的字段
-	 * @param desc 增序还是降序
+	 * @param desc   增序还是降序
 	 * @return
 	 */
 	@GetMapping("page")
-	public  PageResult<Brand> brandList (@RequestParam(name = "key",required = false) String key, 
-										  @RequestParam(name = "page", defaultValue = "1") Integer page,
-										  @RequestParam(name = "rows", defaultValue = "5") Integer rows,
-										  @RequestParam(name = "sortBy") String sortBy,
-										  @RequestParam(name = "desc") Boolean desc) {
-		PageResult<Brand> brands = brandService.brandList(key,page,rows,sortBy,desc);
-		
+	public PageResult<Brand> brandList(@RequestParam(name = "key", required = false) String key,
+			@RequestParam(name = "page", defaultValue = "1") Integer page,
+			@RequestParam(name = "rows", defaultValue = "5") Integer rows, @RequestParam(name = "sortBy") String sortBy,
+			@RequestParam(name = "desc") Boolean desc) {
+		PageResult<Brand> brands = brandService.brandList(key, page, rows, sortBy, desc);
+
 		return brands;
 	}
 
@@ -66,18 +65,20 @@ public class BrandController {
 		}
 		return ImallResult.errorMsg("保存失败");
 	}
+
 	/**
 	 * bid/1912
 	 */
 	@GetMapping("bid/{id}")
 	public ImallResult queryBrandById(@PathVariable("id") Long id) {
-		log.info("***bid:{}",id);
+		log.info("***bid:{}", id);
 		List<Category> categories = brandService.queryCategoriesByBid(id);
 		if (CollectionUtils.isEmpty(categories)) {
 			return ImallResult.errorMsg("查询失败");
 		}
 		return ImallResult.success(categories);
 	}
+
 	@PutMapping
 	public ImallResult updateBrand(BrandVO brand) {
 		Integer updateBrandCount = brandService.updateBrand(brand);
@@ -87,7 +88,7 @@ public class BrandController {
 		}
 		return ImallResult.errorMsg("保存失败");
 	}
-	
+
 	@DeleteMapping("bid/{bid}")
 	public ImallResult deleteBrandById(@PathVariable("bid") Long bid) {
 		log.info("***要删除的品牌的id:{}", bid);
@@ -97,4 +98,19 @@ public class BrandController {
 		}
 		return ImallResult.errorMsg("删除失败");
 	}
+
+	/**
+	 * http://api.imall.com/api/item/brand/cid/76
+	 */
+	@GetMapping("cid/{cid}")
+	public ImallResult getBrandsByCid(@PathVariable("cid") Long cid) {
+		log.info("***新增商品信息-品牌查询-cid:{}",cid);
+		List<Brand> brands = brandService.getBrandsByCid(cid);
+		if (CollectionUtils.isEmpty(brands)) {
+			return ImallResult.errorMsg("查询错误");
+		}
+		
+		return ImallResult.success(brands);
+	}
+
 }
