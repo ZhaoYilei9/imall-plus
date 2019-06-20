@@ -5,6 +5,5 @@
     <artifactId>imall-master</artifactId>
     <version>1.0.0</version>
   </parent>
-  <groupId>com.imall.search</groupId>
   <artifactId>im-search</artifactId>
 </project>

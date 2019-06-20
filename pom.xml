@@ -267,7 +267,6 @@
 		<module>im-registry</module>
 		<module>api-gateway</module>
 		<module>im-item</module>
-		<module>im-tests</module>
-		<module>im-search</module>
+		
 	</modules>
 </project>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="api-gateway" />
+        <module name="im-common" />
+        <module name="im-item-interface" />
+        <module name="im-item-service" />
+        <module name="im-registry" />
+        <module name="im-search" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="api-gateway" target="1.8" />
+      <module name="im-common" target="1.8" />
+      <module name="im-item" target="1.8" />
+      <module name="im-item-interface" target="1.8" />
+      <module name="im-item-service" target="1.8" />
+      <module name="im-registry" target="1.8" />
+      <module name="im-search" target="1.8" />
+      <module name="imall-master" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="api-gateway" options="-parameters" />
+      <module name="im-common" options="-parameters" />
+      <module name="im-item-interface" options="-parameters" />
+      <module name="im-item-service" options="-parameters" />
+      <module name="im-registry" options="-parameters" />
+      <module name="im-search" options="-parameters" />
+    </option>
+  </component>
+</project>
