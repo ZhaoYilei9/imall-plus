@@ -26,7 +26,7 @@ public class Stock {
     /**
      * 库存数量
      */
-    private Integer stock;
+    private Long stock;
 
     /**
      * 获取库存对应的商品sku id
@@ -87,7 +87,7 @@ public class Stock {
      *
      * @return stock - 库存数量
      */
-    public Integer getStock() {
+    public Long getStock() {
         return stock;
     }
 
@@ -96,7 +96,7 @@ public class Stock {
      *
      * @param stock 库存数量
      */
-    public void setStock(Integer stock) {
+    public void setStock(Long stock) {
         this.stock = stock;
     }
 }

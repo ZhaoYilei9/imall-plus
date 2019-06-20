@@ -140,4 +140,12 @@ public class SpuDetail {
     public void setDescription(String description) {
         this.description = description;
     }
+
+	@Override
+	public String toString() {
+		return "SpuDetail [spuId=" + spuId + ", genericSpec=" + genericSpec + ", specialSpec=" + specialSpec
+				+ ", packingList=" + packingList + ", afterService=" + afterService + ", description=" + description
+				+ "]";
+	}
+    
 }
