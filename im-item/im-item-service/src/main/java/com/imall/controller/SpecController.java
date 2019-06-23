@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.imall.api.SpecificationApi;
 import com.imall.pojo.SpecGroup;
 import com.imall.pojo.SpecParam;
 import com.imall.response.ImallResult;
@@ -23,13 +25,13 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 @RequestMapping("spec")
 @Slf4j
-public class SpecController {
+public class SpecController implements SpecificationApi{
 	
 	@Autowired
 	private SpecService specService;
 
 	@RequestMapping("params")
-	public ImallResult getSpecParamsByCid(Long cid) {
+	public ImallResult getSpecParamsByCid(@RequestParam("cid") Long cid) {
 		log.info("***商品规格查询-cid：{}", cid);
 		List<SpecParam> specParams = specService.getSpecParamsByCid(cid);
 		if (CollectionUtils.isEmpty(specParams)) {

@@ -59,4 +59,9 @@ public class ImallResult<T> {
 		this.msg = msg;
 	}
 
+	@Override
+	public String toString() {
+		return "ImallResult [code=" + code + ", data=" + data + ", msg=" + msg + "]";
+	}
+	
 }

@@ -2,6 +2,7 @@ package com.imall.service;
 
 import java.util.List;
 
+import com.imall.bo.SpuBo;
 import com.imall.common.pojo.PageResult;
 import com.imall.common.vo.GoodsVO;
 import com.imall.pojo.Spu;

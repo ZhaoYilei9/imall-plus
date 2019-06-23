@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.imall.api.GoodsApi;
+import com.imall.bo.SpuBo;
 import com.imall.common.pojo.PageResult;
 import com.imall.common.vo.GoodsVO;
 import com.imall.pojo.Spu;
@@ -22,11 +24,11 @@ import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @Slf4j
-public class GoodsController {
+public class GoodsController implements GoodsApi{
 
 	@Autowired
 	private GoodsService goodsService;
-	@RequestMapping("spu/page")
+	
 	public PageResult<Spu> spuList(@RequestParam("key") String key,
 			@RequestParam("saleable") Boolean saleable, 
 			@RequestParam("page") Integer page,
@@ -39,7 +41,6 @@ public class GoodsController {
 	/**
 	 * http://api.imall.com/api/item/goods
 	 */
-	@PostMapping("goods")
 	public ImallResult saveGoods(@RequestBody GoodsVO goodsVO) {
 		log.info("***goodsVO:{}", goodsVO);
 		goodsService.saveGoods(goodsVO);
@@ -48,7 +49,6 @@ public class GoodsController {
 	/**
 	 * http://api.imall.com/api/item/spu/detail/33
 	 */
-	@GetMapping("spu/detail/{spuId}")
 	public ResponseEntity querySpuDetail(@PathVariable("spuId") Long spuId) {
 		log.info("***商品修改-查询商品detail-spuId:{}",spuId);
 		SpuDetail spuDetail = goodsService.querySpuDetail(spuId);
@@ -60,7 +60,6 @@ public class GoodsController {
 	/**
 	 * http://api.imall.com/api/item/sku/list?id=5
 	 */
-	@GetMapping("sku/list")
 	public ImallResult querySkuList(@RequestParam("id") Long id) {
 		log.info("***商品修改-查询商品skuList-spuId:{}",id);
 		return null;
