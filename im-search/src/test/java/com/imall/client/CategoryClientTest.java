@@ -28,7 +28,7 @@ public class CategoryClientTest {
 
     @Test
     public void testQueryCategories() {
-        ImallResult names = this.categoryClient.queryNameByIds(Arrays.asList(1L, 2L));
+        List<String> names = this.categoryClient.queryNameByIds(Arrays.asList(1L, 2L));
         log.info("*****************************:{}",names);
         
     }

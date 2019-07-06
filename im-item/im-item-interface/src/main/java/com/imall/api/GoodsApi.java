@@ -16,6 +16,7 @@ import com.imall.bo.SpuBo;
 import com.imall.common.pojo.PageResult;
 import com.imall.common.vo.GoodsVO;import com.imall.pojo.Sku;
 import com.imall.pojo.Spu;
+import com.imall.pojo.SpuDetail;
 import com.imall.response.ImallResult;
 
 
@@ -28,12 +29,12 @@ public interface GoodsApi {
 			@RequestParam(value = "rows", defaultValue = "5") Integer rows);
 	
 	@PostMapping("goods")
-	public ImallResult saveGoods(@RequestBody GoodsVO goodsVO);
+	public void saveGoods(@RequestBody GoodsVO goodsVO);
 	
 	@GetMapping("spu/detail/{spuId}")
-	public ResponseEntity querySpuDetail(@PathVariable("spuId") Long spuId);
+	public SpuDetail querySpuDetail(@PathVariable("spuId") Long spuId);
 	
 	@GetMapping("sku/list")
-	public ImallResult<List<Sku>> querySkuList(@RequestParam("id") Long id);
+	public List<Sku> querySkuList(@RequestParam("id") Long id);
 	
 }

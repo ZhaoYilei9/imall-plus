@@ -18,5 +18,5 @@ public interface CategoryApi {
 
 //	Category queryCategoryByCid(Long cid);
 	@RequestMapping("names")
-	ImallResult queryNameByIds(@RequestParam("ids") List<Long> ids);
+	List<String> queryNameByIds(@RequestParam("ids") List<Long> ids);
 }

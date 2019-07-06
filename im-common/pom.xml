@@ -17,7 +17,7 @@
 			<artifactId>javax.servlet-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
-
+		
 		<!--日志包 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -52,7 +52,7 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-
+		
 		<!-- 引入log4j日志依赖 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

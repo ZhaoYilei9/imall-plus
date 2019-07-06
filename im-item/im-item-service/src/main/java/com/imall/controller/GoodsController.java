@@ -1,5 +1,7 @@
 package com.imall.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +17,7 @@ import com.imall.api.GoodsApi;
 import com.imall.bo.SpuBo;
 import com.imall.common.pojo.PageResult;
 import com.imall.common.vo.GoodsVO;
+import com.imall.pojo.Sku;
 import com.imall.pojo.Spu;
 import com.imall.pojo.SpuDetail;
 import com.imall.response.ImallResult;
@@ -24,12 +27,13 @@ import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @Slf4j
-public class GoodsController implements GoodsApi{
+public class GoodsController {
 
 	@Autowired
 	private GoodsService goodsService;
 	
-	public PageResult<Spu> spuList(@RequestParam("key") String key,
+	@GetMapping("spu/page")
+	public PageResult<Spu> spuList(@RequestParam(value = "key",required = false) String key,
 			@RequestParam("saleable") Boolean saleable, 
 			@RequestParam("page") Integer page,
 			@RequestParam("rows") Integer rows){
@@ -41,7 +45,8 @@ public class GoodsController implements GoodsApi{
 	/**
 	 * http://api.imall.com/api/item/goods
 	 */
-	public ImallResult saveGoods(@RequestBody GoodsVO goodsVO) {
+	@PostMapping("goods")
+	public ResponseEntity<Void> saveGoods(@RequestBody GoodsVO goodsVO) {
 		log.info("***goodsVO:{}", goodsVO);
 		goodsService.saveGoods(goodsVO);
 		return null;
@@ -49,6 +54,7 @@ public class GoodsController implements GoodsApi{
 	/**
 	 * http://api.imall.com/api/item/spu/detail/33
 	 */
+	@GetMapping("spu/detail/{spuId}")
 	public ResponseEntity querySpuDetail(@PathVariable("spuId") Long spuId) {
 		log.info("***商品修改-查询商品detail-spuId:{}",spuId);
 		SpuDetail spuDetail = goodsService.querySpuDetail(spuId);
@@ -60,8 +66,10 @@ public class GoodsController implements GoodsApi{
 	/**
 	 * http://api.imall.com/api/item/sku/list?id=5
 	 */
-	public ImallResult querySkuList(@RequestParam("id") Long id) {
+	@GetMapping("sku/list")
+	public ResponseEntity querySkuList(@RequestParam("id") Long id) {
 		log.info("***商品修改-查询商品skuList-spuId:{}",id);
-		return null;
+		List<Sku> skuList = goodsService.querySkuListBySpuId(id);
+		return ResponseEntity.ok(skuList);
 	}
 }

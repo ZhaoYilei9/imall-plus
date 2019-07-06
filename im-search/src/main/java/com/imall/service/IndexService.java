@@ -6,24 +6,38 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
+import org.elasticsearch.index.query.QueryBuilders;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.elasticsearch.core.query.FetchSourceFilter;
+import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.imall.client.CategoryClient;
 import com.imall.client.GoodsClient;
 import com.imall.client.SpecificationClient;
+import com.imall.common.pojo.PageResult;
 import com.imall.common.utils.JsonUtils;
+import com.imall.enums.ExceptionEnum;
+import com.imall.exception.ImException;
 import com.imall.pojo.Goods;
 import com.imall.pojo.Sku;
 import com.imall.pojo.SpecParam;
 import com.imall.pojo.Spu;
 import com.imall.pojo.SpuDetail;
+import com.imall.repo.GoodsRepository;
+import com.imall.vo.SearchRequest;
+
+import lombok.extern.slf4j.Slf4j;
 
 @Service
+@Slf4j
 public class IndexService {
 	@Autowired
     private GoodsClient goodsClient;
@@ -34,13 +48,23 @@ public class IndexService {
     @Autowired
     private SpecificationClient specificationClient;
     
+    @Autowired
+    private GoodsRepository goodsRepository;
+    
     //构造商品存入索引库
-    public Goods buildGoods(Spu spu) {
+    public Goods buildGoods(Spu spu) throws ImException{
     	//1.准备数据
     	Long id = spu.getId();
-    	List<Sku> skus = goodsClient.querySkuList(id).getData();
+    	
+    	List<Sku> skus = goodsClient.querySkuList(id);
+    	log.info("*****skus:{}",skus);
+    	if (CollectionUtils.isEmpty(skus)) {
+			throw new ImException(ExceptionEnum.SKU_NOT_FOUND);
+		}
     	List<Long> prices = new ArrayList<Long>();
+    
     	List<Map<String, Object>> skuList = new ArrayList<>();
+    	
     	for (Sku sku : skus) {
 			prices.add(sku.getPrice());
 			Map<String, Object> map = new HashMap<>();
@@ -50,9 +74,13 @@ public class IndexService {
 			map.put("price", sku.getPrice());
 			skuList.add(map);
 		}
-    	SpuDetail spuDetail = (SpuDetail) goodsClient.querySpuDetail(id).getBody();
-    	List<String> names = (List<String>)categoryClient.queryNameByIds(Arrays.asList(spu.getCid1(),spu.getCid2(),spu.getCid3())).getData();
-    	List<SpecParam> params = (List<SpecParam>) this.specificationClient.getSpecParamsByCid(spu.getCid3()).getData();
+    	if (CollectionUtils.isEmpty(skuList)) {
+			throw new ImException(ExceptionEnum.SKU_NOT_FOUND);
+		}
+    	log.info("*****skuList:{}",skuList);
+    	SpuDetail spuDetail = (SpuDetail) goodsClient.querySpuDetail(id);
+    	List<String> names = (List<String>)categoryClient.queryNameByIds(Arrays.asList(spu.getCid1(),spu.getCid2(),spu.getCid3()));
+    	List<SpecParam> params = (List<SpecParam>) this.specificationClient.getSpecParamsByCid(spu.getCid3());
     	Map<Long, String> genericSpec  = JsonUtils.parseMap(spuDetail.getGenericSpec(), Long.class, String.class);
     	Map<Long, List<String>> specialSpec = JsonUtils.nativeRead(spuDetail.getSpecialSpec(), new TypeReference<Map<Long, List<String>>>() {});
     	Map<String,Object> specMap = new HashMap<>();
@@ -83,6 +111,8 @@ public class IndexService {
     	return goods;
     	
     }
+    
+ 
 
 	private String chooseSegment(String value, SpecParam param) {
 		double val = NumberUtils.toDouble(value);
@@ -109,5 +139,36 @@ public class IndexService {
 			
 		}
 		return result;
+	}
+
+
+
+	public PageResult<Goods> search(SearchRequest request) {
+		String key = request.getKey();
+		log.info("*****key:{}", key);
+		if (StringUtils.isBlank(key)) {
+			return null;	
+		}
+		Integer page = request.getPage() - 1;
+		Integer size = request.getSize();
+		//1.创建查询构建器
+		NativeSearchQueryBuilder queryBuilder = new NativeSearchQueryBuilder();
+		//2.查询
+		//2.1 对查询到的结果进行筛选
+		queryBuilder.withSourceFilter(new FetchSourceFilter(new String[] {
+				"id", "skus", "subTitle"
+		}, null));
+		//2.2 查询
+		queryBuilder.withQuery(QueryBuilders.matchQuery("all", key));
+		//2.3 分页
+		queryBuilder.withPageable(PageRequest.of(page, size));
+		//2.4 返回结果
+		Page<Goods> result = goodsRepository.search(queryBuilder.build());
+		
+		//2.5 解析结果
+		long total = result.getTotalElements();
+		int totalPages = result.getTotalPages();
+		
+		return new PageResult<>(page, result.getContent(), totalPages, total);
 	}
 }

@@ -2,11 +2,15 @@ package com.imall.common.pojo;
 
 import java.util.List;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class PageResult<T> {
 	// 当前页
 	private int page;
@@ -20,5 +24,9 @@ public class PageResult<T> {
 	public String toString() {
 		return "PageResult [page=" + page + ", items=" + items + ", pages=" + pages + ", total=" + total + "]";
 	}
-	
+	public PageResult(long total, long totalPage,List<T> items) {
+		this.total = total;
+		this.pages = totalPage;
+		this.items = items;
+	}
 }

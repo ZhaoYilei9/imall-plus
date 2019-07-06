@@ -3,6 +3,8 @@ package com.imall.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,29 +27,29 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 @RequestMapping("spec")
 @Slf4j
-public class SpecController implements SpecificationApi{
+public class SpecController {
 	
 	@Autowired
 	private SpecService specService;
 
 	@RequestMapping("params")
-	public ImallResult getSpecParamsByCid(@RequestParam("cid") Long cid) {
+	public ResponseEntity getSpecParamsByCid(@RequestParam("cid") Long cid) {
 		log.info("***商品规格查询-cid：{}", cid);
 		List<SpecParam> specParams = specService.getSpecParamsByCid(cid);
 		if (CollectionUtils.isEmpty(specParams)) {
-			return ImallResult.errorMsg("查询规格参数失败");
+			return ResponseEntity.status(500).build();
 		}
-		return ImallResult.success(specParams);
+		return ResponseEntity.ok(specParams);
 	}
 	/**
 	 * http://api.imall.com/api/item/spec/groups/76
 	 */
 	@RequestMapping("groups/{cid}")
-	public ImallResult getSpecGroupsByCid(@PathVariable("cid") Long cid) {
+	public ResponseEntity getSpecGroupsByCid(@PathVariable("cid") Long cid) {
 		List<SpecGroup> specGroups = specService.getSpecGroupsByCid(cid);
 		if (CollectionUtils.isEmpty(specGroups)) {
-			return ImallResult.errorMsg("查询规格参数失败");
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
-		return ImallResult.success(specGroups);
+		return ResponseEntity.ok(specGroups);
 	}
 }

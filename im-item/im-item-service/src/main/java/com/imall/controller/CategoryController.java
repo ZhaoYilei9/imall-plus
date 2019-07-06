@@ -21,7 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RestController
 @RequestMapping("category")
-public class CategoryController implements CategoryApi{
+public class CategoryController {
 	
 	@Autowired
 	private CategoryService categoryService;
@@ -40,11 +40,11 @@ public class CategoryController implements CategoryApi{
 	}
 
 	@RequestMapping("names")
-	public ImallResult queryNameByIds(@RequestParam("ids")List<Long> ids) {
+	public ResponseEntity queryNameByIds(@RequestParam("ids")List<Long> ids) {
 		log.info("***ids:***:{}", ids);
 		List<Category> categories = categoryService.queryNameByIds(ids);
 		List<String> categoryNames = categories.stream().map(Category :: getName).collect(Collectors.toList());
-		return ImallResult.success(categoryNames);
+		return ResponseEntity.ok(categoryNames);
 	}
 	
 	

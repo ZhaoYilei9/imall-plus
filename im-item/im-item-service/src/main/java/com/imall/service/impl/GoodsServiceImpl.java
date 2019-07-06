@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -108,6 +109,21 @@ public class GoodsServiceImpl implements GoodsService {
 		SpuDetail spuDetail = spuDetailMapper.selectByPrimaryKey(spuId);
 		return spuDetail;
 	}
+
+	@Override
+	public List<Sku> querySkuListBySpuId(Long id) {
+		Example example = new Example(Sku.class);
+		Criteria criteria = example.createCriteria();
+		criteria.andEqualTo("spuId",id);
+		List<Sku> skuList = skuMapper.selectByExample(example);
+		if (CollectionUtils.isEmpty(skuList)) {
+			return null;
+		}
+		return skuList;
+	}
+
+	
+	
 
 	
 }
