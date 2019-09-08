@@ -2,6 +2,7 @@ package com.imall.service.impl;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
@@ -41,5 +42,14 @@ public class CategoryServiceImpl implements CategoryService{
 		}
 		return categories;
 	}
+	@Override
+	public List<Category> queryCategoriesByCids(List<Long> ids) {
+		List<Category> categories = categoryMapper.selectByIdList(ids);
+		if (CollectionUtils.isEmpty(categories)) {
+			return null;
+		}
+		return categories;
+	}
+	
 
 }

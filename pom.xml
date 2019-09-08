@@ -269,5 +269,6 @@
 		<module>im-item</module>
 
 		<module>im-search</module>
+		<module>im-page</module>
 	</modules>
 </project>

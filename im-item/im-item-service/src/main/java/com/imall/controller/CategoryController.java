@@ -46,6 +46,13 @@ public class CategoryController {
 		List<String> categoryNames = categories.stream().map(Category :: getName).collect(Collectors.toList());
 		return ResponseEntity.ok(categoryNames);
 	}
-	
+	@GetMapping("list/ids")
+	public ResponseEntity queryCategoriesByIds(@RequestParam("ids") List<Long> ids){
+		List<Category> categories = categoryService.queryCategoriesByCids(ids);
+		if (CollectionUtils.isEmpty(categories)) {
+			return ResponseEntity.ok(null);
+		}
+		return ResponseEntity.ok(categories);
+	}
 	
 }

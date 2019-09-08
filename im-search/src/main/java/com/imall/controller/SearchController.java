@@ -12,6 +12,7 @@ import com.imall.common.pojo.PageResult;
 import com.imall.pojo.Goods;
 import com.imall.service.IndexService;
 import com.imall.vo.SearchRequest;
+import com.imall.vo.SearchResult;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -30,12 +31,13 @@ public class SearchController {
 	 * @return
 	 */
 	@PostMapping("page")
-	public ResponseEntity<PageResult<Goods>> search(@RequestBody SearchRequest request) {
+	public ResponseEntity<SearchResult<Goods>> search(@RequestBody SearchRequest request) {
 		log.info("*****request:{}", request.getKey());
-		PageResult<Goods> result = this.indexService.search(request);
+		SearchResult<Goods> result = this.indexService.search(request);
 		if (result == null) {
 			return new ResponseEntity<>(HttpStatus.BAD_GATEWAY);
 		}
 		return ResponseEntity.ok(result);
 	}
+	
 }

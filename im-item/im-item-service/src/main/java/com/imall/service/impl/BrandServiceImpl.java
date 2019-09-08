@@ -1,6 +1,7 @@
 package com.imall.service.impl;
 
 import java.util.ArrayList;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -162,5 +164,14 @@ public class BrandServiceImpl implements BrandService {
 		return brands;
 	}
 
+	@Override
+	public List<Brand> getBrandsByBids(List<Long> ids) {
+		List<Brand> brands = brandMapper.selectByIdList(ids);
+		if (CollectionUtils.isEmpty(brands)) {
+			return null;
+		}
+		return brands;
+	}
+	
 	
 }

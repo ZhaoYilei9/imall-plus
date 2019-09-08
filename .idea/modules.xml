@@ -9,7 +9,6 @@
       <module fileurl="file://$PROJECT_DIR$/im-item/im-item-service/im-item-service.iml" filepath="$PROJECT_DIR$/im-item/im-item-service/im-item-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/im-registry/im-registry.iml" filepath="$PROJECT_DIR$/im-registry/im-registry.iml" />
       <module fileurl="file://$PROJECT_DIR$/im-search/im-search.iml" filepath="$PROJECT_DIR$/im-search/im-search.iml" />
-      <module fileurl="file://$PROJECT_DIR$/im-search/im-search.iml" filepath="$PROJECT_DIR$/im-search/im-search.iml" />
       <module fileurl="file://$PROJECT_DIR$/imall-master.iml" filepath="$PROJECT_DIR$/imall-master.iml" />
     </modules>
   </component>

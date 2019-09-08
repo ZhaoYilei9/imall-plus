@@ -17,4 +17,6 @@ import com.imall.pojo.Category;
 @FeignClient(value = "item-service")
 public interface CategoryClient extends CategoryApi{
 
+	
+
 }

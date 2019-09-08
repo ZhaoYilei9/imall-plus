@@ -7,8 +7,8 @@ spring:
     name: search-service
   data:
     elasticsearch:
-      cluster-name: elasticsearch
-      cluster-nodes: 47.99.243.19:9300
+      cluster-name: docker-cluster
+      cluster-nodes: 192.168.0.48:9300
   
 eureka:
   client:

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ import com.imall.pojo.Goods;
 import com.imall.pojo.Spu;
 import com.imall.repo.GoodsRepository;
 
-import lombok.extern.slf4j.Slf4j;
+//import lombok.extern.slf4j.Slf4j;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = ImSearchService.class)
@@ -42,7 +43,7 @@ public class IndexServiceTest {
 		int page = 1;
 		int rows = 100;
 		int size = 0;
-//		log.info("*********indexService:{}", indexService);
+		log.info("*********indexService:{}", indexService);
 		do {
 			// 查询spu
 			PageResult<Spu> result = this.goodsClient.spuList(null, true, page, rows);
@@ -50,6 +51,8 @@ public class IndexServiceTest {
 			List<Spu> spus = result.getItems();
 			size = spus.size();
 			log.info("******spus:{}", spus);
+			log.info("******spus-size:{}", size);
+
 			for (Spu spu : spus) {
 				try {
 					Goods g = indexService.buildGoods(spu);
@@ -68,5 +71,5 @@ public class IndexServiceTest {
 			page++;
 		} while (size == 100);
 	}
-	
+
 }

@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public enum ExceptionEnum {
-	BRAND_CREATE_FAILED(500, "新增品牌失败"),
+    BRAND_CREATE_FAILED(500, "新增品牌失败"),
     BRAND_NOT_FOUND(404, "品牌查询失败"),
     UPDATE_BRAND_FAILED(500, "品牌更新失败"),
     DELETE_BRAND_EXCEPTION(500, "删除品牌失败"),
@@ -49,7 +49,7 @@ public enum ExceptionEnum {
     SPEC_GROUP_CREATE_FAILED(500, "新增规格组失败"),
     SPEC_GROUP_NOT_FOUND(204, "规格组查询失败"),
     DELETE_SPEC_GROUP_FAILED(500, "商品规格组删除失败"),
-    UPDATE_SPEC_GROUP_FAILED(500, "商品规格组更新失败"), 
+    UPDATE_SPEC_GROUP_FAILED(500, "商品规格组更新失败"),
     PRICE_NOT_FOUND(500, "价格组未查询到"),
 
 

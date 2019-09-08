@@ -19,4 +19,7 @@ public interface CategoryApi {
 //	Category queryCategoryByCid(Long cid);
 	@RequestMapping("names")
 	List<String> queryNameByIds(@RequestParam("ids") List<Long> ids);
+	
+	@GetMapping("list/ids")
+    List<Category> queryCategoriesByIds(@RequestParam("ids") List<Long> ids);
 }

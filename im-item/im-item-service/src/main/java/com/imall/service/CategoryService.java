@@ -12,4 +12,6 @@ public interface CategoryService {
 	
 	List<Category> queryNameByIds(List<Long> ids);
 
+	List<Category> queryCategoriesByCids(List<Long> ids);
+
 }

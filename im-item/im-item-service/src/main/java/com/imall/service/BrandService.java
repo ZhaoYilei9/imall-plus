@@ -21,4 +21,6 @@ public interface BrandService {
 
 	public List<Brand> getBrandsByCid(Long cid);
 
+	public List<Brand> getBrandsByBids(List<Long> ids);
+
 }

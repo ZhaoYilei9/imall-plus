@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.constraints.Positive;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -111,6 +112,16 @@ public class BrandController {
 		}
 		
 		return ImallResult.success(brands);
+	}
+	
+	@GetMapping("list/ids")
+	ResponseEntity queryBrandsByIds(@RequestParam("ids") List<Long> ids){
+		log.info("***[商品服务]-品牌查询-cid:{}",ids);
+		List<Brand> brands = brandService.getBrandsByBids(ids);
+		if (CollectionUtils.isEmpty(brands)) {
+			return ResponseEntity.ok(null);
+		}
+		return ResponseEntity.ok(brands);
 	}
 
 }
