@@ -1,6 +1,7 @@
 package com.imall.pojo;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Table(name = "tb_spec_group")
 public class SpecGroup {
@@ -19,6 +20,20 @@ public class SpecGroup {
      * 规格组的名称
      */
     private String name;
+
+    /**
+     * 规格参数
+     */
+    @Transient
+    private List<SpecParam> params;
+
+    public List<SpecParam> getParams() {
+        return params;
+    }
+
+    public void setParams(List<SpecParam> params) {
+        this.params = params;
+    }
 
     /**
      * 获取主键

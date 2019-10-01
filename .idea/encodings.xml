@@ -3,11 +3,21 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/api-gateway" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/im-auth-center" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/im-auth-center/im-auth-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/im-auth-center/im-auth-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/im-cart" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/im-common" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/im-item" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/im-item/im-item-interface" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/im-item/im-item-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/im-page" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/im-rabbitmq" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/im-registry" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/im-search" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/im-sms-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/im-user" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/im-user/im-user-interface" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/im-user/im-user-service" charset="UTF-8" />
   </component>
 </project>

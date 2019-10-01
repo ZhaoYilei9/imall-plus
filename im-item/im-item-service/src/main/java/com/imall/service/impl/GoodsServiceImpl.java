@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.amqp.core.AmqpTemplate;
+import org.springframework.amqp.rabbit.config.ListenerContainerFactoryBean;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -47,6 +49,9 @@ public class GoodsServiceImpl implements GoodsService {
 
 	@Autowired
 	private StockMapper stockMapper;
+
+	@Autowired
+	private AmqpTemplate amqpTemplate;
 	@Override
 	public PageResult<Spu> spuList(String key, Boolean saleable, Integer page, Integer rows) {
 		// 1.开启分页助手
@@ -102,6 +107,16 @@ public class GoodsServiceImpl implements GoodsService {
 			log.info("***商品新增-sku-stock:{}", skuVO.getStock());
 			stockMapper.insertSelective(stock);
 		}
+		this.sendMessage(spu.getId(), "insert");
+	}
+
+	private void sendMessage(Long id, String type) {
+		 // 发送消息
+		try {
+			this.amqpTemplate.convertAndSend("item." + type, id);
+		} catch (Exception e) {
+			log.error("{}商品消息发送异常，商品id：{}", type, id, e);
+		}
 	}
 
 	@Override
@@ -122,8 +137,23 @@ public class GoodsServiceImpl implements GoodsService {
 		return skuList;
 	}
 
-	
-	
+	@Override
+	public Spu querySpuById(Long id) {
 
-	
+		//根据spuId查询spu
+        Spu spu = spuMapper.selectByPrimaryKey(id);
+
+        //查询spuDetail
+        SpuDetail detail = querySpuDetail(id);
+
+        //查询skus
+        List<Sku> skus = querySkuListBySpuId(id);
+
+        spu.setSpuDetail(detail);
+        spu.setSkus(skus);
+
+		return spu;
+	}
+
+
 }

@@ -172,6 +172,12 @@ public class BrandServiceImpl implements BrandService {
 		}
 		return brands;
 	}
-	
-	
+
+	@Override
+	public Brand queryBrandById(Long id) {
+		Brand brand = brandMapper.selectByPrimaryKey(id);
+		return brand;
+	}
+
+
 }

@@ -275,4 +275,11 @@ public class IndexService {
 			return null;
 		}
 	}
+
+    public void insertOrUpdate(Long id) {
+		Spu spu = this.goodsClient.querySpuById(id);
+		Goods goods = this.buildGoods(spu);
+		log.info("*****消息-商品：{}",goods);
+		this.goodsRepository.save(goods);
+	}
 }

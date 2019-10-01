@@ -11,4 +11,5 @@ public interface SpecService {
 
 	List<SpecGroup> getSpecGroupsByCid(Long cid);
 
+	List<SpecGroup> getSpecsByCid(Long cid);
 }

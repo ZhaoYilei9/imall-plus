@@ -270,5 +270,11 @@
 
 		<module>im-search</module>
 		<module>im-page</module>
-	</modules>
+        <module>im-page</module>
+        <module>im-rabbitmq</module>
+        <module>im-sms-service</module>
+        <module>im-user</module>
+        <module>im-auth-center</module>
+        <module>im-cart</module>
+    </modules>
 </project>

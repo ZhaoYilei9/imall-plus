@@ -8,6 +8,19 @@ spring:
     username: root
     password: root
     driver-class-name: com.mysql.jdbc.Driver
+  rabbitmq:
+    host: 192.168.1.76
+    username: admin
+    password: admin
+    virtual-host: /imall
+    template:
+      retry:
+        enabled: true
+        initial-interval: 10000ms
+        max-interval: 300000ms
+        multiplier: 2
+      exchange: im.item.exchange
+    publisher-confirms: true
 eureka:
   client:
     service-url:
@@ -21,4 +34,6 @@ eureka:
 mybatis:
   configuration:
     use-generated-keys: true
+
+
       

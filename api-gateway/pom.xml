@@ -28,5 +28,10 @@
 			<artifactId>im-common</artifactId>
 			<version>1.0.0</version>
 		</dependency>
+		<dependency>
+			<groupId>com.imall</groupId>
+			<artifactId>im-auth-common</artifactId>
+			<version>1.0.0</version>
+		</dependency>
 	</dependencies>
 </project>

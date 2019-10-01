@@ -71,7 +71,7 @@ public class BrandController {
 	 * bid/1912
 	 */
 	@GetMapping("bid/{id}")
-	public ImallResult queryBrandById(@PathVariable("id") Long id) {
+	public ImallResult queryCategoriesByBid(@PathVariable("id") Long id) {
 		log.info("***bid:{}", id);
 		List<Category> categories = brandService.queryCategoriesByBid(id);
 		if (CollectionUtils.isEmpty(categories)) {
@@ -123,5 +123,12 @@ public class BrandController {
 		}
 		return ResponseEntity.ok(brands);
 	}
-
+	@GetMapping("/{id}")
+	public ResponseEntity queryBrandById(@PathVariable("id") Long id){
+		Brand brand = brandService.queryBrandById(id);
+		if (brand == null){
+			log.error("****[商品服务]-品牌查询失败");
+		}
+		return ResponseEntity.ok(brand);
+	}
 }

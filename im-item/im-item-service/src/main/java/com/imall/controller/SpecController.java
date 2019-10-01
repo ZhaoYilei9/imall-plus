@@ -6,10 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.CollectionUtils;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.imall.api.SpecificationApi;
 import com.imall.pojo.SpecGroup;
@@ -51,5 +48,13 @@ public class SpecController {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
 		return ResponseEntity.ok(specGroups);
+	}
+	@RequestMapping("{cid}")
+	public ResponseEntity getSpecsByCid(@RequestParam("cid") Long cid){
+		List<SpecGroup> specs = this.specService.getSpecsByCid(cid);
+		if (CollectionUtils.isEmpty(specs)) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+		}
+		return ResponseEntity.ok(specs);
 	}
 }

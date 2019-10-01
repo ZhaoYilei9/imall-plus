@@ -19,5 +19,5 @@ public interface GoodsService {
 
 	List<Sku> querySkuListBySpuId(Long id);
 
-
+    Spu querySpuById(Long id);
 }

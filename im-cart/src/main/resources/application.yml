@@ -1,0 +1,26 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: cart-service
+  redis:
+    host: 192.168.1.58
+    database: 2
+
+  rabbitmq:
+    virtual-host: /imall
+    username: admin
+    password: admin
+    host: 192.168.1.76
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+    instance-id: ${spring.application.name}:${server.port}
+im:
+  jwt:
+    pubKeyPath: /home/zyl/rsa/id_rsa.pub # 公钥地址
+    cookieName: LY_TOKEN # cookie的名称
