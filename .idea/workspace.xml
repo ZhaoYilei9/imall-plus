@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d670023b-6588-4b0e-b305-a89311cd7b3d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/im-common/src/main/java/com/imall/common/dto/CartDto.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/im-common/src/main/java/com/imall/common/utils/IdWorker.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/im-order/im-order.iml" afterDir="false" />
@@ -359,7 +360,7 @@
       <workItem from="1571574924494" duration="236000" />
       <workItem from="1571578465223" duration="996000" />
       <workItem from="1571626966606" duration="4338000" />
-      <workItem from="1571930663083" duration="3073000" />
+      <workItem from="1571930663083" duration="3417000" />
     </task>
     <servers />
   </component>

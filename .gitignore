@@ -1,5 +1,5 @@
-/target
-/src/test
+/*/target
+/*/src/test
 .idea
 .settings
 .project
