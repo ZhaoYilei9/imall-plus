@@ -1,6 +1,0 @@
-com/imall/auth/client/UserClient.class
-com/imall/auth/service/AuthService.class
-com/imall/auth/service/impl/AuthServiceImpl.class
-com/imall/auth/ImAuthApplication.class
-com/imall/auth/controller/AuthController.class
-com/imall/auth/properties/JwtProperties.class

@@ -1,6 +1,0 @@
-com/imall/user/service/impl/UserServiceImpl.class
-com/imall/user/UserServiceApplication.class
-com/imall/user/mapper/UserMapper.class
-com/imall/user/web/UserController.class
-com/imall/user/service/UserService.class
-com/imall/user/utils/CodeUtils.class

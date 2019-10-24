@@ -1,93 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d670023b-6588-4b0e-b305-a89311cd7b3d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/im-common/src/main/java/com/imall/common/dto/CartDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/im-common/src/main/java/com/imall/common/utils/IdWorker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/im-order/im-order.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/im-order/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/im-order/src/main/java/com/imall/order/ImOrder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/im-order/src/main/java/com/imall/order/client/GoodsClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/im-order/src/main/java/com/imall/order/config/IdWorkerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/im-order/src/main/java/com/imall/order/config/JwtProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/im-order/src/main/java/com/imall/order/config/MvcConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/im-order/src/main/java/com/imall/order/config/SwaggerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/im-order/src/main/java/com/imall/order/dto/OrderDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/im-order/src/main/java/com/imall/order/enums/OrderStatusEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/im-order/src/main/java/com/imall/order/filter/UserInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/im-order/src/main/java/com/imall/order/mapper/OrderMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/im-order/src/main/java/com/imall/order/properties/IdWorkerProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/im-order/src/main/java/com/imall/order/service/OrderService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/im-order/src/main/java/com/imall/order/service/impl/OrderServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/im-order/src/main/java/com/imall/order/web/OrderController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/im-order/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-cart/target/classes/META-INF/im-cart.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/im-common/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-common/src/main/java/com/imall/common/utils/JsonUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/im-common/src/main/java/com/imall/common/utils/JsonUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-common/src/main/java/com/imall/enums/ExceptionEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/im-common/src/main/java/com/imall/enums/ExceptionEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-common/target/classes/com/imall/common/utils/JsonUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/im-common/target/classes/com/imall/common/utils/JsonUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-common/target/classes/com/imall/enums/ExceptionEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/im-common/target/classes/com/imall/enums/ExceptionEnum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-item/im-item-interface/src/main/java/com/imall/api/GoodsApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/im-item/im-item-interface/src/main/java/com/imall/api/GoodsApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-item/im-item-interface/src/main/java/com/imall/pojo/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/im-order/src/main/java/com/imall/order/pojo/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-item/im-item-interface/src/main/java/com/imall/pojo/OrderDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/im-order/src/main/java/com/imall/order/pojo/OrderDetail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-item/im-item-interface/src/main/java/com/imall/pojo/OrderStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/im-order/src/main/java/com/imall/order/pojo/OrderStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-item/im-item-interface/src/main/java/com/imall/pojo/Sku.java" beforeDir="false" afterPath="$PROJECT_DIR$/im-item/im-item-interface/src/main/java/com/imall/pojo/Sku.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-item/im-item-interface/target/classes/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-item/im-item-interface/target/classes/META-INF/maven/com.imall/im-item-interface/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-item/im-item-interface/target/classes/META-INF/maven/com.imall/im-item-interface/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-item/im-item-interface/target/classes/com/imall/api/GoodsApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/im-item/im-item-interface/target/classes/com/imall/api/GoodsApi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-item/im-item-interface/target/classes/com/imall/pojo/Order.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-item/im-item-interface/target/classes/com/imall/pojo/OrderDetail.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-item/im-item-interface/target/classes/com/imall/pojo/OrderStatus.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-item/im-item-interface/target/classes/com/imall/pojo/Sku.class" beforeDir="false" afterPath="$PROJECT_DIR$/im-item/im-item-interface/target/classes/com/imall/pojo/Sku.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-item/im-item-service/src/main/java/com/imall/controller/GoodsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/im-item/im-item-service/src/main/java/com/imall/controller/GoodsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-item/im-item-service/src/main/java/com/imall/mapper/OrderDetailMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/im-order/src/main/java/com/imall/order/mapper/OrderDetailMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-item/im-item-service/src/main/java/com/imall/mapper/OrderMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-item/im-item-service/src/main/java/com/imall/mapper/OrderStatusMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/im-order/src/main/java/com/imall/order/mapper/OrderStatusMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-item/im-item-service/src/main/java/com/imall/mapper/SkuMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/im-item/im-item-service/src/main/java/com/imall/mapper/SkuMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-item/im-item-service/src/main/java/com/imall/mapper/StockMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/im-item/im-item-service/src/main/java/com/imall/mapper/StockMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-item/im-item-service/src/main/java/com/imall/service/GoodsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/im-item/im-item-service/src/main/java/com/imall/service/GoodsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-item/im-item-service/src/main/java/com/imall/service/impl/GoodsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/im-item/im-item-service/src/main/java/com/imall/service/impl/GoodsServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-item/im-item-service/target/classes/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-item/im-item-service/target/classes/META-INF/maven/com.imall/im-item-service/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-item/im-item-service/target/classes/META-INF/maven/com.imall/im-item-service/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-item/im-item-service/target/classes/com/imall/controller/GoodsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/im-item/im-item-service/target/classes/com/imall/controller/GoodsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-item/im-item-service/target/classes/com/imall/mapper/OrderDetailMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-item/im-item-service/target/classes/com/imall/mapper/OrderMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-item/im-item-service/target/classes/com/imall/mapper/OrderStatusMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-item/im-item-service/target/classes/com/imall/mapper/SkuMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/im-item/im-item-service/target/classes/com/imall/mapper/SkuMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-item/im-item-service/target/classes/com/imall/mapper/StockMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/im-item/im-item-service/target/classes/com/imall/mapper/StockMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-item/im-item-service/target/classes/com/imall/service/GoodsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/im-item/im-item-service/target/classes/com/imall/service/GoodsService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-item/im-item-service/target/classes/com/imall/service/impl/GoodsServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/im-item/im-item-service/target/classes/com/imall/service/impl/GoodsServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-page/target/classes/META-INF/im-page.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-rabbitmq/target/classes/META-INF/im-rabbitmq.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-rabbitmq/target/classes/com/imall/ImRabbitMQ.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-rabbitmq/target/classes/com/imall/test/MQdemo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-registry/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/im-registry/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-search/src/test/java/com/imall/client/CategoryClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/im-search/src/test/java/com/imall/client/CategoryClientTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-search/src/test/java/com/imall/client/GoodsClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/im-search/src/test/java/com/imall/client/GoodsClientTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-search/src/test/java/com/imall/client/SpecificationClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/im-search/src/test/java/com/imall/client/SpecificationClientTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-search/src/test/java/com/imall/repo/GoodsRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/im-search/src/test/java/com/imall/repo/GoodsRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-search/src/test/java/com/imall/service/IndexServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/im-search/src/test/java/com/imall/service/IndexServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-search/target/classes/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-search/target/classes/META-INF/maven/com.imall/im-search/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-search/target/classes/META-INF/maven/com.imall/im-search/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-search/target/test-classes/com/imall/client/CategoryClientTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-search/target/test-classes/com/imall/client/GoodsClientTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-search/target/test-classes/com/imall/client/SpecificationClientTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-search/target/test-classes/com/imall/repo/GoodsRepositoryTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-search/target/test-classes/com/imall/service/IndexServiceTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-sms-service/target/test-classes/com/imall/listener/SmsListenerTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-user/im-user-service/target/classes/META-INF/im-user-service.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-user/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/im-user/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-    </list>
+    <list default="true" id="d670023b-6588-4b0e-b305-a89311cd7b3d" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -360,7 +274,7 @@
       <workItem from="1571574924494" duration="236000" />
       <workItem from="1571578465223" duration="996000" />
       <workItem from="1571626966606" duration="4338000" />
-      <workItem from="1571930663083" duration="3417000" />
+      <workItem from="1571930663083" duration="3713000" />
     </task>
     <servers />
   </component>

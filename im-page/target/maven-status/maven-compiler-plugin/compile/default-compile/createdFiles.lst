@@ -1,8 +1,0 @@
-com/imall/page/controller/PageController.class
-com/imall/page/client/CategoryClient.class
-com/imall/page/client/GoodsClient.class
-com/imall/page/client/SpecificationClient.class
-com/imall/ImPage.class
-com/imall/page/client/BrandClient.class
-com/imall/page/service/impl/PageServiceImpl.class
-com/imall/page/service/PageService.class
