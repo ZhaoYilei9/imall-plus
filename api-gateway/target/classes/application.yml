@@ -21,6 +21,7 @@ zuul:
     user-service: /user/**
     auth-service: /auth/**
     cart-service: /cart/**
+    order-service: /order/**
 #  ignored-patterns: /upload/**
 #  ignored-services: upload-service
   add-host-header: true

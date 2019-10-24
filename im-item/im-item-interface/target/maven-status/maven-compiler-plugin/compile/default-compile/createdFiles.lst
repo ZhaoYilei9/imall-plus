@@ -1,0 +1,15 @@
+com/imall/api/CategoryApi.class
+com/imall/pojo/User.class
+com/imall/pojo/Brand.class
+com/imall/pojo/SpecGroup.class
+com/imall/pojo/SpecParam.class
+com/imall/pojo/UserCoupon.class
+com/imall/api/BrandApi.class
+com/imall/pojo/CategoryBrand.class
+com/imall/pojo/Spu.class
+com/imall/api/SpecificationApi.class
+com/imall/pojo/Stock.class
+com/imall/pojo/Category.class
+com/imall/pojo/Sku.class
+com/imall/api/GoodsApi.class
+com/imall/pojo/SpuDetail.class

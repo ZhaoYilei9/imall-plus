@@ -2,6 +2,7 @@ package com.imall.controller;
 
 import java.util.List;
 
+import com.imall.common.dto.CartDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -76,5 +77,17 @@ public class GoodsController {
 	public ResponseEntity querySpuById(@PathVariable("id") Long id){
 		Spu spu = goodsService.querySpuById(id);
 		return ResponseEntity.ok(spu);
+	}
+
+	@GetMapping ("sku/list/ids")
+	public ResponseEntity querySkuByIds(@RequestParam("ids") List<Long> ids){
+		List<Sku> skus = goodsService.querySkuByIds(ids);
+		return ResponseEntity.ok(skus);
+	}
+
+	@PostMapping("stock/decrease")
+	public ResponseEntity<Void> decreaseStock(@RequestBody List<CartDto> cartDTOS){
+		goodsService.decreaseStock(cartDTOS);
+		return ResponseEntity.noContent().build();
 	}
 }

@@ -12,7 +12,6 @@
     <modules>
         <module>im-user-interface</module>
         <module>im-user-service</module>
-        <module>im-user-service</module>
     </modules>
 
     <artifactId>im-user</artifactId>

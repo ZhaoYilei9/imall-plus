@@ -59,6 +59,19 @@ public class Sku {
      */
     @Column(name = "last_update_time")
     private Date lastUpdateTime;
+    /**
+     * 库存
+     */
+    @Transient
+    private Long stock ;
+
+    public Long getStock() {
+        return stock;
+    }
+
+    public void setStock(Long stock) {
+        this.stock = stock;
+    }
 
     /**
      * 获取sku id

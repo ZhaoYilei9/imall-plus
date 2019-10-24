@@ -1,0 +1,6 @@
+/home/zyl/Work/IdeaProject/imall-plus/im-auth-center/im-auth-service/src/main/java/com/imall/auth/controller/AuthController.java
+/home/zyl/Work/IdeaProject/imall-plus/im-auth-center/im-auth-service/src/main/java/com/imall/auth/service/impl/AuthServiceImpl.java
+/home/zyl/Work/IdeaProject/imall-plus/im-auth-center/im-auth-service/src/main/java/com/imall/auth/ImAuthApplication.java
+/home/zyl/Work/IdeaProject/imall-plus/im-auth-center/im-auth-service/src/main/java/com/imall/auth/properties/JwtProperties.java
+/home/zyl/Work/IdeaProject/imall-plus/im-auth-center/im-auth-service/src/main/java/com/imall/auth/service/AuthService.java
+/home/zyl/Work/IdeaProject/imall-plus/im-auth-center/im-auth-service/src/main/java/com/imall/auth/client/UserClient.java

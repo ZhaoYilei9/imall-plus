@@ -1,0 +1,5 @@
+/home/zyl/Work/IdeaProject/imall-plus/api-gateway/src/main/java/com/imall/ImApiGateway.java
+/home/zyl/Work/IdeaProject/imall-plus/api-gateway/src/main/java/com/imall/config/GlobalCorsConfig.java
+/home/zyl/Work/IdeaProject/imall-plus/api-gateway/src/main/java/com/imall/properties/FilterProperties.java
+/home/zyl/Work/IdeaProject/imall-plus/api-gateway/src/main/java/com/imall/properties/JwtProperties.java
+/home/zyl/Work/IdeaProject/imall-plus/api-gateway/src/main/java/com/imall/filter/LoginFilter.java

@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="im-user-service" />
+        <module name="im-order" />
         <module name="im-item-interface" />
         <module name="im-user-interface" />
         <module name="im-registry" />
@@ -32,6 +33,7 @@
       <module name="im-common" options="-parameters" />
       <module name="im-item-interface" options="-parameters" />
       <module name="im-item-service" options="-parameters" />
+      <module name="im-order" options="-parameters" />
       <module name="im-page" options="-parameters" />
       <module name="im-rabbitmq" options="-parameters" />
       <module name="im-registry" options="-parameters" />

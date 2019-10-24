@@ -51,7 +51,7 @@ public enum ExceptionEnum {
     DELETE_SPEC_GROUP_FAILED(500, "商品规格组删除失败"),
     UPDATE_SPEC_GROUP_FAILED(500, "商品规格组更新失败"),
     PRICE_NOT_FOUND(500, "价格组未查询到"),
-
+    ORDER_DETAIL_INSERT_ERROR(500, "订单详情添加失败"),
 
     ;
     int value;

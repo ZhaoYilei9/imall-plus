@@ -1,0 +1,12 @@
+/home/zyl/Work/IdeaProject/imall-plus/im-search/src/main/java/com/imall/client/GoodsClient.java
+/home/zyl/Work/IdeaProject/imall-plus/im-search/src/main/java/com/imall/listener/GoodsListener.java
+/home/zyl/Work/IdeaProject/imall-plus/im-search/src/main/java/com/imall/pojo/Goods.java
+/home/zyl/Work/IdeaProject/imall-plus/im-search/src/main/java/com/imall/client/CategoryClient.java
+/home/zyl/Work/IdeaProject/imall-plus/im-search/src/main/java/com/imall/client/BrandClient.java
+/home/zyl/Work/IdeaProject/imall-plus/im-search/src/main/java/com/imall/client/SpecificationClient.java
+/home/zyl/Work/IdeaProject/imall-plus/im-search/src/main/java/com/imall/vo/SearchResult.java
+/home/zyl/Work/IdeaProject/imall-plus/im-search/src/main/java/com/imall/service/IndexService.java
+/home/zyl/Work/IdeaProject/imall-plus/im-search/src/main/java/com/imall/vo/SearchRequest.java
+/home/zyl/Work/IdeaProject/imall-plus/im-search/src/main/java/com/imall/ImSearchService.java
+/home/zyl/Work/IdeaProject/imall-plus/im-search/src/main/java/com/imall/repo/GoodsRepository.java
+/home/zyl/Work/IdeaProject/imall-plus/im-search/src/main/java/com/imall/controller/SearchController.java

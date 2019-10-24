@@ -1,0 +1,5 @@
+com/imall/ImApiGateway.class
+com/imall/properties/JwtProperties.class
+com/imall/properties/FilterProperties.class
+com/imall/filter/LoginFilter.class
+com/imall/config/GlobalCorsConfig.class

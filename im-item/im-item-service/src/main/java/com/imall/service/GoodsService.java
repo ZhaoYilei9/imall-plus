@@ -3,6 +3,7 @@ package com.imall.service;
 import java.util.List;
 
 import com.imall.bo.SpuBo;
+import com.imall.common.dto.CartDto;
 import com.imall.common.pojo.PageResult;
 import com.imall.common.vo.GoodsVO;
 import com.imall.pojo.Sku;
@@ -20,4 +21,8 @@ public interface GoodsService {
 	List<Sku> querySkuListBySpuId(Long id);
 
     Spu querySpuById(Long id);
+
+    List<Sku> querySkuByIds(List<Long> ids);
+
+    void decreaseStock(List<CartDto> cartDTOS);
 }

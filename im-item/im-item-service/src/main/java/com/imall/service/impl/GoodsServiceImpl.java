@@ -2,7 +2,12 @@ package com.imall.service.impl;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
+import com.imall.common.dto.CartDto;
+import com.imall.enums.ExceptionEnum;
+import com.imall.exception.ImException;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.amqp.rabbit.config.ListenerContainerFactoryBean;
@@ -155,5 +160,31 @@ public class GoodsServiceImpl implements GoodsService {
 		return spu;
 	}
 
+	@Override
+	public List<Sku> querySkuByIds(List<Long> ids) {
+		List<Sku> skus = skuMapper.selectByIdList(ids);
+		if (CollectionUtils.isEmpty(skus)){
+			throw new ImException(ExceptionEnum.SKU_NOT_FOUND);
+		}
+		fillStock(ids, skus);
+		return skus;
+	}
 
+	private void fillStock(List<Long> ids, List<Sku> skus) {
+		List<Stock> stocks = stockMapper.selectByIdList(ids);
+		//s为stocks的遍历对象
+		Map<Long, Long> stockMap = stocks.stream().collect(Collectors.toMap(s -> s.getSkuId(), s -> s.getStock()));
+		for (Sku sku : skus) {
+			sku.setStock(stockMap.get(sku.getId()));
+		}
+
+	}
+
+	@Transactional
+	@Override
+	public void decreaseStock(List<CartDto> carts) {
+		for (CartDto cart : carts) {
+			stockMapper.decreaseStock(cart.getSkuId(),cart.getNum());
+		}
+	}
 }

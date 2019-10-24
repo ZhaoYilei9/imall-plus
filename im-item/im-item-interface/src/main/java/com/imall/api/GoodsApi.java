@@ -2,6 +2,7 @@ package com.imall.api;
 
 import java.util.List;
 
+import com.imall.common.dto.CartDto;
 import org.apache.log4j.varia.FallbackErrorHandler;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,4 +40,10 @@ public interface GoodsApi {
 
 	@GetMapping("spu/{id}")
 	public Spu querySpuById(@PathVariable("id") Long id);
+
+	@GetMapping ("sku/list/ids")
+	public List<Sku> querySkuByIds(@RequestParam("ids") List<Long> ids);
+
+	@PostMapping("stock/decrease")
+	void decreaseStock(@RequestBody List<CartDto> cartDTOS);
 }
